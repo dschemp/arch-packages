@@ -1,0 +1,16 @@
+# Maintainer: Daniel Schemp <dschemp@mailbox.org>
+
+pkgname=otf-berlin-type
+pkgver=1.0
+pkgrel=1
+pkgdesc="Berlin Type. Our Font. From Berlin for Berlin."
+arch=('any')
+url="https://wir.berlin/en/be-a-part/the-new-berlin-font"
+license=('custom:unknown')
+source=("LICENSE" "$pkgname-$pkgver.zip::https://wir.berlin/fileadmin/downloads/Wir.Berlin_Schrift.zip")
+sha256sums=('SKIP' 'SKIP')
+
+package() {
+	install -Dm644 -t "${pkgdir}/usr/share/fonts/${pkgname}" "Wir.Berlin Schrift/Desktop (OTF)"/*.otf
+	install -Dm644 "LICENSE" "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+}
