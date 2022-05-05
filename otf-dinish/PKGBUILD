@@ -1,0 +1,23 @@
+# Maintainer: Daniel Schemp <dschemp@mailbox.org>
+
+pkgname=otf-dinish
+pkgver=2.013
+pkgrel=1
+pkgdesc="The DINish font."
+arch=('any')
+url="https://github.com/playbeing/dinish"
+license=('OFL')
+source=("$pkgname-$pkgver.zip"::"https://github.com/playbeing/dinish/releases/download/v${pkgver}/dinish-otf.zip")
+sha256sums=('SKIP')
+
+prepare() {
+	wget "https://raw.githubusercontent.com/playbeing/dinish/v${pkgver}/OFL.txt" -O LICENSE	
+}
+
+package() {
+	install -Dm644 -t "${pkgdir}/usr/share/fonts/${pkgname}" "Dinish/"*.otf
+	install -Dm644 -t "${pkgdir}/usr/share/fonts/${pkgname}/Condensed" "DinishCondensed/"*.otf
+	install -Dm644 -t "${pkgdir}/usr/share/fonts/${pkgname}/Expanded" "DinishExpanded/"*.otf
+
+	install -Dm644 "LICENSE" "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+}
