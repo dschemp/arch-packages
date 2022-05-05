@@ -1,6 +1,7 @@
 # Maintainer: Daniel Schemp <dschemp@mailbox.org>
 
-pkgname=otf-techna-sans
+_pkgname=otf-techna-sans
+pkgname=${_pkgname}-git
 pkgver=1.0
 pkgrel=1
 pkgdesc="Sharp, geometric typeface"
