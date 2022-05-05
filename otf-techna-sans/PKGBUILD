@@ -1,0 +1,17 @@
+# Maintainer: Daniel Schemp <dschemp@mailbox.org>
+
+pkgname=otf-techna-sans
+pkgver=1.0
+pkgrel=1
+pkgdesc="Sharp, geometric typeface"
+arch=('any')
+url="https://github.com/carlstype/techna-sans"
+license=('OFL')
+source=("git+https://github.com/carlstype/techna-sans")
+sha256sums=('SKIP')
+
+package() {
+	cd "${srcdir}/techna-sans"
+	install -Dm644 -t "${pkgdir}/usr/share/fonts/${pkgname}" *.otf
+	install -Dm644 "LICENSE.txt" "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+}
